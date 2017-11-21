@@ -11,7 +11,7 @@ module.exports = db;
 
 async function main()
 {
-   // await Promise.all([db.fleets.sync({force: true}), db.motions.sync({force: true}), db.vehicles.sync({force: true})]);
+    await Promise.all([db.fleets.sync({force: false}), db.motions.sync({force: false}), db.vehicles.sync({force: false})]);
     const app = express();
     app.use('/api', require('./api/api'));
     app.use(bodyParser.urlencoded({extended: true}));

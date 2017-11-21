@@ -7,11 +7,11 @@ module.exports = (Sequelize, sequelize) => {
         vehicleId: {type: Sequelize.INTEGER}
     },
                             {
-                                gettersMethods:
+                                getterMethods:
                                     {
-                                        name: ()=>
+                                        latLng: function()
                                         {
-                                            return `{\nlatitude: ${this.latitude},\nlongitude: ${this.longitude}\n}`
+                                            return {latitude: this.latitude,longitude: this.longitude};
                                         }
                                     }
                             });
