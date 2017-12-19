@@ -24,7 +24,7 @@ module.exports = (Sequelize, config)=>
     const vehicles = Vehicle(Sequelize, sequelize);
 
     motions.belongsTo(vehicles, {foreignKey: 'vehicleId', targetKey: 'id'});
-    vehicles.belongsTo(fleets, {foreignKey: 'firstFavoritePizzaId', targetKey: 'id'});
+    vehicles.belongsTo(fleets, {foreignKey: 'fleetId', targetKey: 'id'});
 
 
     return {

@@ -15,6 +15,7 @@ app.get('/readall', (req, res) =>
 
 app.get('/read', (req, res) =>
 {
+    console.log(req.headers.id);
     res.contentType('application/json');
     db.fleets.findById(req.headers.id)
         .then(query => query? res.json(query): res.json({error: 400}));
@@ -23,6 +24,7 @@ app.get('/read', (req, res) =>
 app.post('/create', (req, res)=>
 {
     res.contentType('application/json');
+    if (!req.body.name) res.json({error: 400});
     db.fleets.create
     (
         {
